@@ -21,3 +21,4 @@ function validatePIN (pin) {
   }
 
   //backdating changes test
+  //getting all the squares
