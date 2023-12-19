@@ -3,7 +3,6 @@
 // What if the string is empty? Then the result should be empty object literal, {}.
 
 function count(string) {
-    let letterArray = string.split('')
     let result = {}
     for (let i = 0; i<string.length; i++){
       if (result.hasOwnProperty(string[i])){
