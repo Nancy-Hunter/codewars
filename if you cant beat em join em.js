@@ -22,7 +22,7 @@
 
 // cantBeatSoJoin([[0,1,1,1], [1,0,1,1], [1,1,0,1], [3]]) -> [0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0,
 
-
+//THIS DOES NOT WORK FOR ARRAYS THAT HAVE DUPLICATES
 function cantBeatSoJoin(numbers) {
     console.log(numbers)
     let strengthValue = numbers.map(x => x.reduce((acc, current)=> acc + current, 0))
