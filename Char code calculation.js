@@ -16,10 +16,12 @@
 
 
 function calc(x){
+    console.log("x is:" + x)
     let xArray = x.split('').map(x=>x.charCodeAt()).join('')
-    
-    let total2 = xArray.split('').map(x=> x == 7? 1 : x).reduce((acc, current)=> acc + current)
-    let total1 = xArray.split('').reduce((acc, current)=> acc + current, 0)
-    console.log(total2)
+    console.log("xArray is:" + xArray)
+    let total2 = xArray.split('').map(x=> x == 7? 1 : x).reduce((acc, current)=> Number(acc) + Number(current), 0)
+    console.log("total2 is:" + total2)
+    let total1 = xArray.split('').reduce((acc, current)=> Number(acc) + Number(current), 0)
+    console.log("total1 is:" + total1)
     return Number(total1-total2)
   }
