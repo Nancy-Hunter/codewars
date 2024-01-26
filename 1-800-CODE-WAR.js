@@ -40,44 +40,6 @@
 // Only words in the list are allowed.
 
 
-function check1800(str) {
-    let phonepad = {
-        2 : ['A', 'B', 'C'],
-        3 : ['D', 'E', 'F'],  
-        4 : ['G', 'H', 'I'],
-        5 : ['J', 'K', 'L'],
-        6 : ['M', 'N', 'O'],
-        7 : ['P', 'Q', 'R', 'S'], 
-        8 : ['T', 'U', 'V'],
-        9 : ['W', 'X', 'Y', 'Z']
-      }
-  
-    let firstLetter = str.split('-').slice(2, 3).join('')
-    let firstNumber = firstLetter.split('').map(element=> Object.keys(phonepad).find(key => phonepad[key].includes(element)))
-    let secondLetter = str.split('-').slice(3).join('')
-    let secondNumber = secondLetter.split('').map(element=> Object.keys(phonepad).find(key => phonepad[key].includes(element)))
-    let phoneNumber = firstNumber.concat(secondNumber)
-    let firstWords = Preloaded.WORDS
-    for (let i = 0; i < 4; i++) {
-      firstWords = firstWords.filter(element => phonepad[phoneNumber[i]].includes(element[i]))
-    }
-    let secondWords = Preloaded.WORDS
-    for (let i = 0; i < 3; i++) {
-      console.log(phoneNumber[i+4])
-      secondWords = secondWords.filter(element => (phonepad[phoneNumber[i+3]].includes(element[i]) && element[i].length==4) || phonepad[phoneNumber[i+4]].includes(element[i]))
-    }
-    let result = []
-    for (let i = 0; i < firstWords.length; i++) {
-      for (let j = 0; j < secondWords.length; j++) {
-        if ((firstWords[i].length==4 && secondWords[j].length==3) || (firstWords[i].length==3 && secondWords[j].length==4)){
-          result.push(`1-800-${firstWords[i]}-${secondWords[j]}`)
-        }
-      }
-    }
-    console.log(firstWords, secondWords)
-    console.log(str, firstLetter, phoneNumber, secondLetter, secondNumber)
-    return  result
-}
 
 function check1800(str) {
     let phonepad = {
@@ -98,20 +60,27 @@ function check1800(str) {
     let phoneNumber = firstNumber.concat(secondNumber)
     let firstWords = Preloaded.WORDS
     let secondWords = Preloaded.WORDS
-    let firstWords2 = Preloaded.WORDS
-    let secondWords2 = Preloaded.WORDS
-    //for the three letter words
+    
+    
+    //needs to filter to match first, second, and third letter. 
+    //if first three match must also == 3 letter word
+    //if four letter word all 4 letters must match
     for (let i = 0; i < 4; i++) {
-      firstWords = firstWords.filter(element => phonepad[phoneNumber[i]].includes(element[i]))
-      secondWords = secondWords.filter(element => phonepad[phoneNumber[i+3]].includes(element[i]))
+      if (i == 3) {
+        console.log(phoneNumber[i] , phoneNumber)
+         firstWords = firstWords.filter(element => phonepad[phoneNumber[i]].includes(element[i]) || element.length==3)
+         secondWords = secondWords.filter(element => phonepad[phoneNumber[i+3]].includes(element[i]) || element.length ==3)
+      } else {
+         firstWords = firstWords.filter(element => phonepad[phoneNumber[i]].includes(element[i]))
+         secondWords = secondWords.filter(element => {
+           if (element.length == 4 && phonepad[phoneNumber[i+3]].includes(element[i])) {
+               return element
+           } else if (element.length == 3 && phonepad[phoneNumber[i+4]].includes(element[i])) {
+             return element
+           } 
+        })
+        }
     }
-      //for the 4 letter words
-    for (let i = 0; i < 3; i++) {
-      firstWords2 = firstWords2.filter(element => phonepad[phoneNumber[i]].includes(element[i]))
-      secondWords2 = secondWords2.filter(element => phonepad[phoneNumber[i+4]].includes(element[i]))
-    }
-    console.log(firstWords.concat(firstWords2))
-    secondWords.concat(secondWords2)
     let result = []
     for (let i = 0; i < firstWords.length; i++) {
       for (let j = 0; j < secondWords.length; j++) {
@@ -120,7 +89,5 @@ function check1800(str) {
         }
       }
     }
-    console.log(firstWords, secondWords)
-    console.log(str)
     return  result
 }
