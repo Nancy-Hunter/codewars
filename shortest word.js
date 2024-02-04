@@ -7,3 +7,10 @@ function findShort(s){
     let minIndex = lengthArray.indexOf(Math.min(...lengthArray))
     return lengthArray[minIndex]
  }
+
+ //better
+
+ function findShort(s){
+    let lengthArray = s.split(' ').map(current=> current.length)
+    return Math.min(...lengthArray)
+ }
