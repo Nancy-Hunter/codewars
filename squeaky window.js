@@ -17,19 +17,15 @@
 // (nums = [1,3,-1,-3,5,3,6,7], k = 3) ---> [3, 3, 5, 5, 6, 7]
 
 function sliding(nums, k) {
-    console.log(nums.length)
-    let moves = nums.length % k == 0? nums.length - (k-1) : nums.length - (nums.length % k)
-    console.log(moves)
-    let result = []
-    let testArr = []
-    for (let i = 0; i < moves; i++) {
-      for (let j = 0; j < k; j++) {
-        testArr.push(nums[i+j])
-      }
-      result.push(Math.max(...testArr))
-      testArr =[]
+  let moves = nums.length - k + 1
+  let result = []
+  let testArr = []
+  for (let i = 0; i < moves; i++) {
+    for (let j = 0; j < k; j++) {
+      testArr.push(nums[i+j])
     }
-    return result
+    result.push(Math.max(...testArr))
+    testArr =[]
   }
-
-  //doesnt work :(
+  return result
+}
