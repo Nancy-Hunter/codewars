@@ -20,17 +20,22 @@
 // I'd advise you to find an efficient way for grouping the words in anagrams otherwise you'll probably won't pass the heavy superhero test cases
 
 
-//non functioning!!
+//works but is too slow for giant tests have to take out console.logs to work for superhero tests
 
-function isSubset(current, index, arr) {
-    let currentWordArr = current.split('').sort()
-    
+function groupAnagrams(words){
+  let sortedWords = words.map((current, index, arr)=> current.split('').sort().join(''))
+  let result = []
+  let sortedResult = []
+  console.log(sortedWords, words)
+  for (let i = 0; i<words.length; i++) {
+    if (i == 0 ||  !sortedResult.includes(sortedWords[i])){
+      sortedResult.push(sortedWords[i])
+      result.push([])
+      result[result.length-1].push(words[i])
+    } else {
+      result[sortedResult.indexOf(sortedWords[i])].push(words[i])
+    }
   }
-    
-  function groupAnagrams(words){
-    return words.reduce((result, current, index, arr)=> {
-      if ( !index || !isSubset(current, index, arr) result.push([])
-      result[result.length - 1].push(current)
-      return result 
-    }, [])
-  }  
+  console.log(sortedResult, result)
+  return result
+}  
