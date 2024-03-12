@@ -35,25 +35,35 @@
 // len(sound_str) <= 1000
 
 
-//UNFINISHED
-
 function countHorses(sound) {
+    //convert to array and to numbers
     sound = sound.split('').map(x=> Number(x))
-    console.log(sound)
+    //intilize result
     let result = []
-   // while (!sound.every(x=> x==0) {
-      sound.forEach((current, index) => {
-        if (current >0) {
-          result.push( index + 1)
-          sound.map(x=> {
-            if (x % (index + 1)==0) {
-              return x--
-            }
-            return x
-          })
+    //intilize variable to hold current horse first step
+    let index
+    //set up too many loops because i couldnt figure out how to use a while loop to check if every number is zero. this is the biggest area for improvement
+    let rounds = sound.length 
+    while (rounds>0) {
+      //finds first hoof beat
+      for (let i = 0; i< sound.length; i ++) {
+        if (sound[i] >0) {
+          //add current horse
+          result.push( i + 1)
+          //index of current horse
+          index = i
+          break
         }
-      }) 
-    // }
-    console.log(sound)
+      } 
+    //deletes current horse from array
+    sound = sound.map((x, indexX)=> {
+            if ((indexX + 1) % (index + 1)==0) {
+              return x-1
+            } else { 
+              return x
+            }
+          })
+      rounds--
+    }
     return result
   }
