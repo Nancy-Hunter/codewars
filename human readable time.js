@@ -26,6 +26,7 @@
 // A unit of time must be used "as much as possible". It means that the function should not return 61 seconds, but 1 minute and 1 second instead. Formally, the duration specified by of a component must not be greater than any valid more significant unit of time.
 
 function formatDuration (seconds) {
+    if (seconds == 0) return 'now'
     let sec = seconds % 60
     seconds = (seconds - sec)/60
     let min = seconds % 60
@@ -45,10 +46,13 @@ function formatDuration (seconds) {
         result.push(`${time[i]} ${units[i]}s`)
       }
     }
-    console.log(result)
     if (result.length>1) {
       result.splice(-1, 0, 'and')
-      console.log(result.join(' '))
+      if (result.length>3) {
+        for (let i = 0; i<result.length-3; i++) {
+          result[i]+=','
+        }
+      }
     }
     return result.join(' ').trim()
   }
