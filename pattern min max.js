@@ -42,3 +42,15 @@ function findSpecPartition(n, k, com){
     }
     return maxResult
 }
+
+function findSpecPartition(n, k, com){
+  // min
+if (com == 'min') {
+  let minArr = [n - (k -1)].concat(Array(k-1).fill(1))
+  return minArr
+} 
+//max
+let leftover = n % k
+let maxArr = Array(leftover).fill(Math.ceil(n/k)).concat(Array(k-leftover).fill(Math.floor(n/k)))
+return maxArr
+}

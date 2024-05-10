@@ -16,13 +16,30 @@ function capitalize(s){
     let wordOne = ''
     let wordTwo = ''
     s.split('').forEach((element, index) => {
-                              if (index % 2 == 0) {
-                                  wordOne += element.toUpperCase()
-                                  wordTwo += element.toLowerCase()
-                              } else {
-                                  wordOne += element.toLowerCase()
-                                  wordTwo += element.toUpperCase()
-                              }   
-                           })
+         if (index % 2 == 0) {
+             wordOne += element.toUpperCase()
+             wordTwo += element.toLowerCase()
+         } else {
+             wordOne += element.toLowerCase()
+             wordTwo += element.toUpperCase()
+         }   
+      })
     return [wordOne, wordTwo]
     };
+
+    //second solution
+
+    function capitalize(s){
+        let capFirst = []
+        let capSecond = []
+        s.split('').forEach((x, index)=> {
+          if (index % 2 == 0) {
+            capFirst.push(x.toUpperCase())
+            capSecond.push(x.toLowerCase())
+          } else {
+            capFirst.push(x.toLowerCase())
+            capSecond.push(x.toUpperCase())
+          }
+        })
+        return [capFirst.join(''), capSecond.join('')]
+      };

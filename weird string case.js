@@ -16,3 +16,12 @@ function toWeirdCase(string){
       }).join('')
     }).join(' ')
   }
+//second try (maybe with a bit of cheating)
+  function toWeirdCase(string){
+    return string.toLowerCase().split(' ').map(el=> {
+      return el.split('').map((letter, index)=> {
+        if (index % 2 == 0) return letter.toUpperCase()
+        return letter
+      }).join('')
+    }).join(' ')
+  }

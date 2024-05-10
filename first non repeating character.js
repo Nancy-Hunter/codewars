@@ -17,3 +17,11 @@ function firstNonRepeatingLetter(s) {
       } 
     return ''
   }
+
+  //second try
+
+  function firstNonRepeatingLetter(s) {
+    let sCopy = JSON.parse(JSON.stringify(s)).toLowerCase().split('')
+    let result = sCopy.findIndex( x => sCopy.indexOf(x) == sCopy.lastIndexOf(x))
+    return result > -1 ? s[result] : ''
+  }
