@@ -25,3 +25,12 @@ function arithmetic(a, b, operator){
         default: return 'Not a valid operator'
     }
   }
+
+  //BETTER
+  const arithmetic = (a, b, operator) => ({
+    'add'     : a + b,
+    'subtract': a - b,
+    'multiply': a * b,
+    'divide'  : a / b
+  }[operator]);
+  //Think bracket notation on an object where you do obj[key]. And then the '=> (obj[key])' returns automatically since there is just the one expression. No 'return' needed.
