@@ -34,3 +34,9 @@ function arithmetic(a, b, operator){
     'divide'  : a / b
   }[operator]);
   //Think bracket notation on an object where you do obj[key]. And then the '=> (obj[key])' returns automatically since there is just the one expression. No 'return' needed.
+
+  //ALSO COOL
+  function arithmetic(a, b, operator){
+    optable = { "add":"+", "subtract": "-", "multiply": "*" , "divide":"/"};
+    return eval(a + optable[operator] + b); 
+  }
