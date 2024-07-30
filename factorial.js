@@ -15,3 +15,14 @@ function factorial(n)
   }
   return result
 }
+
+// Your task is to write function factorial.
+
+function factorial(n){
+  let result = 1
+  while (n>0) {
+    result *= n
+    n--
+  }
+  return result
+}
