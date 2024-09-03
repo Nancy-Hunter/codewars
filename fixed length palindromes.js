@@ -25,3 +25,11 @@ function palin(a,b){
       return oddPalindromes[b-1]
     }
   };
+
+  //MORE BEAUTIFUL
+
+  function palin(a,b) {
+    var palin = (Math.pow(10, Math.floor((a - 1) / 2)) + b - 1).toString();
+    var drome = palin.slice(0, Math.floor(a / 2)).split('').reverse().join('');
+    return +(palin + drome);
+  }
