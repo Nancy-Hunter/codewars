@@ -18,3 +18,7 @@ function arrayDiff(a, b) {
     console.log(a, b)
     return result
   }
+//ReDone a few weeks later in less than 2 minutes
+  function arrayDiff(a, b) {
+    return a.filter(el=> !b.includes(el))
+  }
