@@ -22,3 +22,9 @@
 function squareSum(numbers){
     return numbers.reduce((acc, el)=> acc + el*el, 0)
    }
+
+// did it better a few weeks ago
+
+function squareSum(numbers){
+    return numbers.map(el=> el * el).reduce((acc, el)=> acc + el, 0)
+  }

@@ -26,3 +26,13 @@ function createPhoneNumber(numbers){
   
   return format;
 }
+
+// done a few weeks later
+
+function createPhoneNumber(numbers){
+  let phoneNumber = [...'(xxx) xxx-xxxx']
+  numbers.forEach(el=> {
+    phoneNumber[phoneNumber.indexOf('x')] = el
+  })
+  return phoneNumber.join('')
+}

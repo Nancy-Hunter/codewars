@@ -12,3 +12,14 @@ function duplicateEncode(word){
     let unique = word.toLowerCase().split('').filter((el, _index, arr)=> arr.indexOf(el)==arr.lastIndexOf(el))
     return word.toLowerCase().split('').map(el=> unique.includes(el)? '(':')').join('')
 }
+
+//done a few weeks later in about 5 or less minutes
+
+function duplicateEncode(word){
+    return word.toLowerCase().split('').map((el, _index, arr)=> {
+      if (arr.indexOf(el)==arr.lastIndexOf(el)) {
+        return '('
+      }
+      return ')'
+    }).join('')
+  }

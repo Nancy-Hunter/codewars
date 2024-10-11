@@ -8,3 +8,10 @@
 function positiveSum(arr) {
   return arr.filter(el=> el > 0).reduce((acc, el)=> acc + el, 0)
 }
+
+// done a few weeks later
+function positiveSum(arr) {
+  return arr.filter(el=> el>0).reduce((acc, el)=> acc + el, 0)
+}
+
+//same same

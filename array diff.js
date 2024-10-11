@@ -22,3 +22,15 @@ function arrayDiff(a, b) {
   function arrayDiff(a, b) {
     return a.filter(el=> !b.includes(el))
   }
+
+// redone a few weeks later in a couple minutes
+
+function arrayDiff(a, b) {
+  let result = []
+  a.forEach(el=> {
+    if (!b.includes(el)) { 
+      result.push(el)
+    }
+  })
+  return result
+}
