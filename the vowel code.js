@@ -39,3 +39,6 @@ function encode(string) {
       return vowelCode[el]? vowelCode[el] : el
     }).join('')
   }
+
+
+  
