@@ -38,10 +38,12 @@
 
 function mix(s1, s2) {
     let alphabet = [...'abcdefghijklmnopqrstuvwxyz']
+    //filter input sentences to only include letters with multiple occurances
     s1 = s1.split('').filter(el=> alphabet.includes(el)).sort().filter((el, _ind, arr)=> arr.indexOf(el) != arr.lastIndexOf(el))
     s2 = s2.split('').filter(el=> alphabet.includes(el)).sort().filter((el, _ind, arr)=> arr.indexOf(el) != arr.lastIndexOf(el))
     let count1 = []
     let count2 = []
+    //create an array of objects containing letter (id), reoccurance (value), and origin (sentence)
     s1.forEach(el=> {
       if (count1.some(item=> item.id == el)) {
         let objIndex = count1.findIndex(obj => obj.id == el);
@@ -60,25 +62,32 @@ function mix(s1, s2) {
         count2.push(letter)
       }
     })
+    //array of unique letters to be catagorized
     let collated = new Set(s1.concat(s2))
     let collatedArr = []
+    //concat arrays to be used in result
     collated.forEach(el=> {
+      //index of letter being added to array
       let objIndex1 = count1.findIndex(obj => obj.id == el);
       let objIndex2 = count2.findIndex(obj => obj.id == el);
+      //if letter occurs in both sentences add higher value or add value and change origin (sentence) to 3
       if (objIndex1 >=0 && objIndex2 >=0) {
-        count1[objIndex1].value>count2[objIndex2].value? collatedArr.push(count1[objIndex1]):count1[objIndex1].value==count2[objIndex2].value? collatedArr.push({id : count2[objIndex2].id, value : count2[objIndex2].value, sentence: '='}):collatedArr.push(count2[objIndex2])
+        count1[objIndex1].value>count2[objIndex2].value? collatedArr.push(count1[objIndex1]):count1[objIndex1].value==count2[objIndex2].value? collatedArr.push({id : count2[objIndex2].id, value : count2[objIndex2].value, sentence: 3}):collatedArr.push(count2[objIndex2])
       } else {
-        count2[objIndex2] == -1? collatedArr.push(count1[objIndex1]):collatedArr.push(count2[objIndex2])
+        //if letter only occurs in one sentence add value
+        objIndex2 == -1? collatedArr.push(count1[objIndex1]):collatedArr.push(count2[objIndex2])
       }
     })
-    collatedArr.sort((a, b)=> b.sentence-a.sentence)
+    //sort by sentence
+    collatedArr.sort((a, b)=> a.sentence-b.sentence)
+    //sort by reoccurance value
     collatedArr.sort((a, b)=> b.value-a.value)
     
-    console.log(collatedArr)
-    
     let result = ''
+    //result built with sentence 3 changed to '='
     collatedArr.forEach(el=> {
-      result += `${el.sentence}:${el.id.repeat(el.value)}/`
+      result += `${el.sentence==3? '=':el.sentence}:${el.id.repeat(el.value)}/`
     })
-    return result
+    //remove trailing /
+    return result.slice(0, result.length-1)
   }
