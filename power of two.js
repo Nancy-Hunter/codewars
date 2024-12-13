@@ -18,3 +18,4 @@ function isPowerOfTwo(n){
   }
   return 2**i == n
 }
+

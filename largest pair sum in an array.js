@@ -9,3 +9,18 @@
 function largestPairSum (numbers) {
     return numbers.sort((a, b)=> a-b).slice(-2).reduce((acc, el)=>acc + el, 0)
   }
+
+  //Using destructuring!!
+
+function largestPairSum(numbers) {
+  var [a, b] = numbers.sort((a, b) => b - a)
+  return a + b
+}
+
+//Taking out two array methods
+
+
+function largestPairSum (numbers) {
+  numbers.sort((a, b)=> b - a)
+  return numbers[0] + numbers[1]
+}
