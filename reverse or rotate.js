@@ -33,7 +33,7 @@ function revrot(str, sz) {
       if (isEven % 2 == 0) {
         return el.split('').reverse().join('')
       } else {
-        return el.slice(1, el.length) + el[0]
+        return el.slice(1) + el[0]
       }
     })
     return arr.join('')
