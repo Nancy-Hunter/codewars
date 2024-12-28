@@ -15,3 +15,8 @@ function arrayPlusArray(arr1, arr2) {
   //   for i in range(len(arr)):
   //       sum += arr[i]
   //   return sum
+
+  // BETTER
+
+  // def array_plus_array(arr1,arr2):
+  //   return sum(arr1+arr2)
