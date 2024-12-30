@@ -18,3 +18,8 @@ def in_asc_order(arr):
         if (arr[i+1]< arr[i]): 
             return False
     return True 
+
+# //Better
+
+def in_asc_order(arr):
+    return arr == sorted(arr)
