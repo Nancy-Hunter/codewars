@@ -13,3 +13,8 @@ function reverseWords(str) {
 
 // def reverse_words(text):
 //     return " ".join(list(map(lambda el : el[:: -1], text.split(' '))))
+
+// cleaner 
+
+// def reverse_words(str):
+//     return ' '.join(s[::-1] for s in str.split(' '))
