@@ -18,3 +18,12 @@ function reverseWords(str) {
 
 // def reverse_words(str):
 //     return ' '.join(s[::-1] for s in str.split(' '))
+
+// same but readable
+
+// def reverse_words(str):
+//   #go for it
+//   newStr = []
+//   for i in str.split(' '):
+//       newStr.append(i[::-1])
+//   return ' '.join(newStr)
