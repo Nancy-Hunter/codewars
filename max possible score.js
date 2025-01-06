@@ -15,3 +15,8 @@ function maxPossibleScore(obj, arr) {
     }
     return result
   }
+
+//   in python 
+
+//   def get_count(sentence):
+//     return len(list(filter(lambda el : el in 'aeiou', sentence)))
