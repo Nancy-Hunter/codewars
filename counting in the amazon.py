@@ -23,3 +23,10 @@ def count_arara(n):
     if n % 2 != 0 :
         result += 'anane'
     return result.strip()
+
+# in JS
+
+# function countArara(n) {
+#   let result = new Array(Math.floor(n/2)).fill("adak").join(' ')
+#   return n % 2 == 0? result : result.length>0? result + " anane" : 'anane'
+# }
