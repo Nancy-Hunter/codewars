@@ -30,3 +30,8 @@ def count_arara(n):
 #   let result = new Array(Math.floor(n/2)).fill("adak").join(' ')
 #   return n % 2 == 0? result : result.length>0? result + " anane" : 'anane'
 # }
+
+# sexier
+
+# const countArara = n =>
+#   `${`adak `.repeat(n / 2)}${`anane`.repeat(n % 2)}`.trim();
