@@ -13,3 +13,9 @@ def square_digits(num):
     for i in str(num):
         result += f'{int(i) * int(i)}'
     return int(result)
+
+
+# cleaner
+
+def square_digits(num):
+    return int(''.join(str(int(d)**2) for d in str(num)))
