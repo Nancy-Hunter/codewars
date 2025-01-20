@@ -10,3 +10,9 @@
 function descendingOrder(n){
     return Number(n.toString().split("").sort((a, b)=> b - a).join(""))
   }
+
+
+  // in python
+
+  // def descending_order(num):
+  //   return int(''.join(sorted(str(num), reverse = True)))
