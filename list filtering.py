@@ -7,3 +7,9 @@
 
 def filter_list(l):
     return list(filter(lambda el: type(el)==int, l))
+
+
+# gotta figure out this looping business
+def filter_list(l):
+  'return a new list with the strings filtered out'
+  return [e for e in l if type(e) is int]
