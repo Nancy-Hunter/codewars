@@ -26,3 +26,8 @@ function isIsogram(str){
   //       if string.rindex(el) != string.index(el) :
   //           return False
   //   return True
+
+  // way slicker
+
+  // def is_isogram(string):
+  //   return len(string) == len(set(string.lower()))
