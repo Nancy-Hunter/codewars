@@ -8,3 +8,8 @@
 function reverseWords(str) {
     return str.split('').reverse().join('').split(" ").reverse().join(" ")
   } 
+
+// in python
+
+// def reverse_words(text):
+//     return " ".join(list(map(lambda el : el[:: -1], text.split(' '))))
