@@ -20,3 +20,12 @@ function maxPossibleScore(obj, arr) {
 
 //   def get_count(sentence):
 //     return len(list(filter(lambda el : el in 'aeiou', sentence)))
+
+// def max_possible_score(points, seen): 
+//     result = 0
+//     for el in points :
+//         if el in seen :
+//             result += points[el] * 2
+//         else :
+//             result += points[el]
+//     return result
