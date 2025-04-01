@@ -27,3 +27,10 @@ function getMiddle(s)
     return s[Math.ceil(middle-1)]
   }
 }
+
+// in python 
+
+// def get_middle(s):
+//     startChar = int(len(s)/2)
+//     return s[startChar-1 : startChar+1] if len(s) % 2 == 0 else s[round(startChar)]
+    
