@@ -17,3 +17,12 @@ function isIsogram(str){
     }
     return true
   }
+
+  // in python 
+
+  // def is_isogram(string):
+  //   string = string.lower()
+  //   for el in string :
+  //       if string.rindex(el) != string.index(el) :
+  //           return False
+  //   return True
