@@ -25,3 +25,13 @@ function spinWords(string){
     console.log(result.join(' '))
     return result.join(' ')
   }
+
+//   in python
+
+//   def spin_words(sentence):
+//     return " ".join(map(overFive, sentence.split(" ")))
+    
+// def overFive (el) : 
+//     if len(el)>= 5 :
+//         return el[::-1]
+//     return el
