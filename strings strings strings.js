@@ -59,3 +59,9 @@ Array.prototype.toString = function () {
     
     return stringer(this)
   }
+
+//   BETTER
+
+Array.prototype.toString = function() {
+    return '[' + this.map(m => typeof m === 'string' ? "'" + m.toString() + "'" : m.toString()).join(',') + ']';
+  }
