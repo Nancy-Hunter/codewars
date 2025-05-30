@@ -17,3 +17,17 @@ function calculate(num1, operation, num2) {
   }
     return isFinite(operationMap[operation])? operationMap[operation] : null
 }
+
+//CLEANER
+
+const OPS = {
+  '+': (a,b)=>a+b,
+  '-': (a,b)=>a-b,
+  '*': (a,b)=>a*b || 0,
+  '/': (a,b)=>b == 0 ? null : a/b,
+}
+
+function calculate(num1, operation, num2) {
+  const op = OPS[operation];
+  return op ? op(num1, num2) : null;
+}
