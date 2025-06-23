@@ -54,3 +54,26 @@ function hyphenNickname(word, separator) {
   console.log(filteredWord.join(separator))
   return filteredWord.join(separator)
 }
+
+//works
+
+function abbreviate(string) {
+  const abc = 'abcdefghijklmnopqrstuvwxyz'
+  let spacers = []
+  string =  string.split('').map((char, i, arr) => {
+    if(abc.includes(char.toLowerCase())) return char
+    else {
+      spacers.push([char, i])
+      return ' '
+    }
+  }).join('').split(' ').map(word => {
+    if(word.length <= 3) return word
+    else return word.slice(0,1) + (word.length - 2) + word.slice(word.length - 1, word.length)
+  })
+  if(string.length > 1) {
+    for(let i = 0, j = 1; j < string.length; i ++, j += 2) {
+      string.splice(j, 0, spacers[i][0])
+    }
+  }
+  return string.join('')
+}
