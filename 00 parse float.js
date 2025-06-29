@@ -3,3 +3,10 @@
 function parseF(s) {
   return s == parseFloat(s)? parseFloat(s) : null
 }
+
+// using isNaN()
+
+function parseF(s) {
+  const f = parseFloat(s)
+  return isNaN(f) ? null : f
+}
