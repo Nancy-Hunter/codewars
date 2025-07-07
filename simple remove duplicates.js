@@ -23,3 +23,11 @@ function solve(arr) {
   }
   return arr
 }
+
+// SIMPLER
+
+function solve(arr){
+    return arr.filter((val,i) => arr.lastIndexOf(val) == i);
+}
+
+const solve = arr => [...new Set(arr.reverse())].reverse()
