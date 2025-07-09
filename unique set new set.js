@@ -35,3 +35,10 @@ function maxTriSum(numbers){
 }
 
 //New set creates an object. to turn it back to an array have to use the spread operator inside brackets
+
+//SEXIER
+
+const maxTriSum2 = numbers => {
+  const [a,b,c,...rest] = [...new Set([...numbers])].sort((a,b)=>b-a)
+  return a+b+c
+}
