@@ -72,3 +72,11 @@ function automorphic(n){
   
   return n== +nSquareString.slice(-nLength).join('') ? "Automorphic":"Not!!" 
 }
+
+//BETTER
+
+function automorphic2(n){
+  let len = n.toString().length
+  let num = (n * n).toString().slice(-len)
+  return (n == num) ? 'Automorphic' : 'Not!!'
+}
