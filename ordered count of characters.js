@@ -17,6 +17,6 @@ const orderedCount = function (text) {
     }
   }
   return Object.entries(textObj);
-}
+}     
 
 //returns numbers in numerical order instead of order of apperance 
