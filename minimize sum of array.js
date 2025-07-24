@@ -27,4 +27,4 @@ function minSum(arr) {
     result += low[i]*high[(len/2)-i-1]
   }
   return result
-}
+}    
