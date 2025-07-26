@@ -17,3 +17,10 @@ function isDigit(s) {
   if (s == 0) return true
   return String(Number(s)) === s
 }
+
+
+//BETTER
+
+function isDigit(s) {
+ return s==parseFloat(s);
+}
