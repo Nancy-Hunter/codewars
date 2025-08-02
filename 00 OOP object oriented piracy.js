@@ -36,10 +36,17 @@ class Ship {
     this.draft = draft
     this.crew = crew
   }
-  
   isWorthIt () {
     let booty = this.draft - (this.crew * 1.5)
     return booty>=20
   }
-  
+}
+
+function Ship(draft,crew) {
+ this.draft = draft;
+ this.crew = crew;
+}
+
+Ship.prototype.isWorthIt = function(){
+return this.draft-(this.crew*1.5) > 20;
 }
